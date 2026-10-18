@@ -1,4 +1,5 @@
 {
+  "id": "/study-hub/",
   "name": "Study Hub",
   "short_name": "Study Hub",
   "description": "Jakob's Term 4 study quizzes, tests and analytics",
@@ -6,6 +7,7 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
+  "prefer_related_applications": false,
   "background_color": "#f2f1ee",
   "theme_color": "#3b2fa3",
   "icons": [

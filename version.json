@@ -1,8 +1,8 @@
 {
- "version": "1.1",
+ "version": "1.2",
  "date": "2026-10-18",
  "notes": [
-  "Study Hub is now an app with its own icon",
-  "Updates arrive automatically when you open the app"
+  "New Install app button with the right steps for iPhone, Android and computers",
+  "Fixed Android blocking the app as built for an older version"
  ]
 }
