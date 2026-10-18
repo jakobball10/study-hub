@@ -17,8 +17,8 @@
 <meta property="og:title" content="Study Hub · Download the app">
 <meta property="og:description" content="Quizzes, tests and progress tracking for every subject. Tap to install it free on Android, iPhone or your computer.">
 <meta property="og:url" content="https://jakobball10.github.io/study-hub/">
-<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.7">
-<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.7">
+<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.8">
+<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.8">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Study Hub · Download the app">
 <meta name="twitter:description" content="Quizzes, tests and progress tracking for every subject. Install it free.">
-<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.7">
+<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.8">
 <title>Study Hub</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -450,7 +450,7 @@ const SUBJECTS=[
   Q(["In which state of matter does sound travel fastest?","Sound moves quickest through which kind of material?"],"Solid",["Gas","Liquid","Vacuum","It's the same speed in all of them"],"Solid = fastest, liquid = medium, gas = slowest. Particles are packed closest in a solid, so vibrations pass along quicker. Sound can't travel in a vacuum at all.","Where are the particles packed most tightly?"),
   Q(["Which of these does NOT need a medium to travel through?","Which waves can travel through the vacuum of space?"],"Electromagnetic waves",["Sound waves","Mechanical waves","Water waves","None, all waves need a medium"],"Electromagnetic waves (like light and radio) don't need a medium, so they can cross space. Mechanical waves such as sound always need one.","Which kind of wave reaches us from the Sun?"),
   Q(["What does the acronym SONAR stand for?","SONAR is short for…"],"Sound Navigation And Ranging",["Sound Operated Navigation And Radar","System Of Navigation And Reflection","Sonic Oscillation And Ranging","Sound Navigation And Radar"],"SONAR = Sound Navigation And Ranging. It measures speed, distance and time using reflected sound pulses."),
-  Q(["What is the speed of sound in seawater?","How fast does sound travel through seawater?"],"1500 m/s",["300 m/s","760 m/s","300,000 km/s","340 m/s"],"Speed of sound in seawater = 1500 m/s. (300,000 km/s is the speed of light!)","It's a liquid, so faster than in air."),
+  Q(["Sound travels through seawater at about 1500 m/s, but through air at only about 340 m/s. Why is it faster in seawater?","Sound moves at about 1500 m/s in seawater and about 340 m/s in air. What explains the difference?"],"Seawater is a liquid, so its particles are closer together than in air (a gas)",["Seawater is warmer than air","Salt speeds the sound up","Sound is louder underwater","Air particles are closer together than water particles"],"Sound is passed along by particles bumping into each other. In a liquid they're closer together than in a gas, so the vibrations pass on faster. Solids are faster still.","Think about how close the particles are."),
   Q(["A SONAR pulse reflects off the seabed and returns to the ship in 4 seconds. Speed of sound in seawater = 1500 m/s. How deep is the seabed?","A ship's SONAR echo comes back from the seabed after 4 s. If sound travels at 1500 m/s in seawater, what is the depth?"],"3000 m",["1500 m","6000 m","375 m","750 m"],"Round trip = 1500 × 4 = 6000 m. That's down AND back, so the depth = 6000 ÷ 2 = 3000 m.","Find the total distance first, then halve it."),
   Q(["One hertz (Hz) is equal to…","What does a frequency of 1 Hz mean?"],"One vibration per second",["One thousand vibrations per second","One vibration per minute","The loudness of a sound","One wavelength per metre"],"1 Hz = 1 vibration per second. A kilohertz (kHz) is 1000 per second. Frequency is how often something vibrates, not how loud it is."),
   Q(["Sound travels faster in warm air than in cold air because…","Why does sound move more quickly through warm air?"],"The particles move with greater energy",["Warm air has fewer particles","Warm air is a vacuum","Cold air absorbs the sound","Warm air is denser"],"In warmer air the particles have more energy, so they pass the vibrations along faster.","Heat gives particles more of what?"),
@@ -502,10 +502,10 @@ const SUBJECTS=[
   Q(["Using the triangle, how do you find speed?","Which formula gives speed?"],"Speed = distance ÷ time",["Speed = time ÷ distance","Speed = distance × time","Speed = distance − time","Speed = time × 2"],"Cover S and you're left with D over T, so S = D ÷ T."),
   Q(["For an echo or SONAR question, how do you find the one-way distance?","An echo returns after time t. What is the distance to the object?"],"(Speed × time) ÷ 2",["Speed × time","Speed ÷ time","(Speed × time) × 2","Time ÷ speed"],"Speed × time gives the round trip. Halve it for the one-way distance."),
   Q(["What two things does the speed of sound depend on?","The speed of sound changes with…"],"The medium it travels through and the temperature",["The colour and brightness of the source","Only how loud it is","Only the pitch","The time of day"],"Sound's speed depends on the medium (solid, liquid, gas) and, in air, the temperature."),
-  Q(["What is the speed of sound in air at 0°C?","At 0°C, sound travels through air at about…"],"331 m/s",["343 m/s","1500 m/s","5200 m/s","300 m/s"],"At 0°C the speed of sound in air is 331 m/s."),
-  Q(["For every degree above 0°C, how does the speed of sound in air change?","Each 1°C rise in air temperature changes the speed of sound by…"],"It increases by 0.6 m/s",["It decreases by 0.6 m/s","It increases by 6 m/s","It doubles","It doesn't change"],"Speed increases by 0.6 m/s for every degree above 0°C, and decreases by 0.6 m/s for every degree below."),
-  Q(["What is the speed of sound in air at 20°C?","Air is 20°C. How fast does sound travel?"],"343 m/s",["331 m/s","351 m/s","319 m/s","323 m/s"],"331 + (20 × 0.6) = 331 + 12 = 343 m/s."),
-  Q(["What is the speed of sound in air at −10°C?","Air is −10°C. How fast does sound travel?"],"325 m/s",["331 m/s","337 m/s","321 m/s","341 m/s"],"331 − (10 × 0.6) = 331 − 6 = 325 m/s."),
+  Q(["Sound travels through air at 331 m/s when it's 0°C. If the air warms up, what happens to the speed of sound?","At 0°C sound moves through air at 331 m/s. What happens to its speed on a hotter day?"],"It increases",["It decreases","It stays exactly the same","It stops completely","It doubles"],"Warmer air particles have more energy, so they pass the vibrations along faster. Sound speeds up as air gets warmer."),
+  Q(["Sound in air speeds up by 0.6 m/s for every 1°C rise in temperature. How much faster is it at 10°C than at 0°C?","If sound gains 0.6 m/s for each 1°C warmer, how much faster is it at 10°C than at 0°C?"],"6 m/s faster",["0.6 m/s faster","60 m/s faster","10 m/s faster","16 m/s faster"],"10 degrees × 0.6 m/s per degree = 6 m/s faster."),
+  Q(["Sound travels through air at 331 m/s at 0°C, and speeds up by 0.6 m/s for every 1°C warmer. What is its speed at 20°C?","At 0°C sound moves at 331 m/s and gains 0.6 m/s per 1°C. How fast is it at 20°C?"],"343 m/s",["331 m/s","351 m/s","319 m/s","343.6 m/s"],"331 + (20 × 0.6) = 331 + 12 = 343 m/s."),
+  Q(["Sound travels through air at 331 m/s at 0°C, and changes by 0.6 m/s for every 1°C. What is its speed at −10°C?","At 0°C sound moves at 331 m/s and changes by 0.6 m/s per 1°C. How fast is it at −10°C?"],"325 m/s",["331 m/s","337 m/s","321 m/s","330.4 m/s"],"Colder means slower: 331 − (10 × 0.6) = 331 − 6 = 325 m/s."),
   Q(["You see lightning and hear the thunder 4 s later. Sound travels at 322 m/s. How far away is the lightning?","Thunder arrives 4 seconds after the flash. With sound at 322 m/s, how far away was the strike?"],"1288 m",["644 m","80.5 m","2576 m","326 m"],"D = S × T = 322 × 4 = 1288 m. No halving: the sound only travels one way.","Is this a there-and-back trip?"),
   Q(["You yell at a mountain 82 m away on a 0°C day, when sound travels at 331 m/s. How long until you hear the echo?","A cliff is 82 m away and the air is 0°C, so sound travels at 331 m/s. How long does an echo take to return?"],"About 0.50 s",["About 0.25 s","About 4.0 s","About 27 s","About 0.12 s"],"Round trip = 82 × 2 = 164 m. T = 164 ÷ 331 ≈ 0.50 s. (0.25 s forgets the sound comes back.)","Double the distance first."),
   Q(["A helicopter passes overhead and you hear it 3 s later. Sound travels at 343 m/s. How high is it?","You hear a helicopter's engine 3 s after seeing it overhead. With sound at 343 m/s, what is its height?"],"1029 m",["114 m","514.5 m","2058 m","346 m"],"D = 343 × 3 = 1029 m. One way only, so no halving."),
@@ -1896,7 +1896,7 @@ let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=
 home();
 </script>
 
-<script>window.SH_MODE='app';const APP_VERSION="1.7", APP_NOTES=["Science speed-of-sound questions now give you the speed to use"];</script>
+<script>window.SH_MODE='app';const APP_VERSION="1.8", APP_NOTES=["Science: no more memorising speeds of sound. Every question gives you the numbers you need"];</script>
 <script src="../shell.js"></script>
 </body>
 </html>

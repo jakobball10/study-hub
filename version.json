@@ -1,7 +1,7 @@
 {
- "version": "1.7",
+ "version": "1.8",
  "date": "2026-10-18",
  "notes": [
-  "Science speed-of-sound questions now give you the speed to use"
+  "Science: no more memorising speeds of sound. Every question gives you the numbers you need"
  ]
 }
