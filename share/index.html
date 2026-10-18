@@ -12,8 +12,8 @@
 <meta property="og:title" content="Study Hub · Download the app">
 <meta property="og:description" content="Quizzes, tests and progress tracking for every subject. Tap to install it free on Android, iPhone or your computer.">
 <meta property="og:url" content="https://jakobball10.github.io/study-hub/">
-<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.10">
-<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.10">
+<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.11">
+<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.11">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Study Hub · Download the app">
 <meta name="twitter:description" content="Quizzes, tests and progress tracking for every subject. Install it free.">
-<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.10">
+<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.11">
 <meta name="theme-color" content="#1d6b4f">
 <link rel="icon" href="../logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,7 +68,7 @@ ol{margin:0;padding-left:20px;font-size:15px;color:var(--muted)}
   <section class="card">
     <h2>Email (Gmail, Outlook, Apple Mail)</h2>
     <p>Most email apps don't turn links into previews, so paste this banner instead. It's a picture with a <b>Download the app</b> button, and tapping anywhere on it opens the download page.</p>
-    <a class="banner" id="bannerBox" href="https://jakobball10.github.io/study-hub/"><img src="../email-banner.jpg?v=1.10" alt="Study Hub: Download the app" width="1200" height="630"></a>
+    <a class="banner" id="bannerBox" href="https://jakobball10.github.io/study-hub/"><img src="../email-banner.jpg?v=1.11" alt="Study Hub: Download the app" width="1200" height="630"></a>
     <div class="row"><button class="btn" id="copyEmail">Copy email banner</button><a class="btn ghost" id="mailBtn" href="#">Open new email</a><span class="ok" id="okEmail" hidden>Copied ✓ Now paste it into your email</span></div>
     <ol><li>Tap <b>Copy email banner</b>.</li><li>Start a new email and <b>paste</b> into the message.</li><li>The banner and a text link drop in, ready to send.</li></ol>
   </section>
@@ -80,7 +80,7 @@ ol{margin:0;padding-left:20px;font-size:15px;color:var(--muted)}
 </div>
 <script>
 (function(){
-  const SITE='https://jakobball10.github.io/study-hub/', IMG=SITE+'email-banner.jpg?v=1.10';
+  const SITE='https://jakobball10.github.io/study-hub/', IMG=SITE+'email-banner.jpg?v=1.11';
   const flash=id=>{const e=document.getElementById(id);e.hidden=false;setTimeout(()=>e.hidden=true,3500)};
   const text='Check out Study Hub, a free study app with quizzes and tests for every subject: '+SITE;
   document.getElementById('shareBtn').onclick=async()=>{if(navigator.share){try{await navigator.share({title:'Study Hub',text:'A free study app with quizzes and tests for every subject.',url:SITE})}catch(e){}}else{await copyText(SITE);flash('okLink')}};

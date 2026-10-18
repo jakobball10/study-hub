@@ -1,9 +1,7 @@
 {
- "version": "1.10",
+ "version": "1.11",
  "date": "2026-10-18",
  "notes": [
-  "True or false now shows proper statements to judge",
-  "Written answers use fill-in-the-blank for questions that need options",
-  "Fixed 34 questions whose wording didn't match the answer"
+  "Science: visible light now described as sitting in the middle of the EM spectrum"
  ]
 }
