@@ -17,8 +17,8 @@
 <meta property="og:title" content="Study Hub · Download the app">
 <meta property="og:description" content="Quizzes, tests and progress tracking for every subject. Tap to install it free on Android, iPhone or your computer.">
 <meta property="og:url" content="https://jakobball10.github.io/study-hub/">
-<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.6">
-<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.6">
+<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.7">
+<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.7">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Study Hub · Download the app">
 <meta name="twitter:description" content="Quizzes, tests and progress tracking for every subject. Install it free.">
-<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.6">
+<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.7">
 <title>Study Hub</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -507,12 +507,12 @@ const SUBJECTS=[
   Q(["What is the speed of sound in air at 20°C?","Air is 20°C. How fast does sound travel?"],"343 m/s",["331 m/s","351 m/s","319 m/s","323 m/s"],"331 + (20 × 0.6) = 331 + 12 = 343 m/s."),
   Q(["What is the speed of sound in air at −10°C?","Air is −10°C. How fast does sound travel?"],"325 m/s",["331 m/s","337 m/s","321 m/s","341 m/s"],"331 − (10 × 0.6) = 331 − 6 = 325 m/s."),
   Q(["You see lightning and hear the thunder 4 s later. Sound travels at 322 m/s. How far away is the lightning?","Thunder arrives 4 seconds after the flash. With sound at 322 m/s, how far away was the strike?"],"1288 m",["644 m","80.5 m","2576 m","326 m"],"D = S × T = 322 × 4 = 1288 m. No halving: the sound only travels one way.","Is this a there-and-back trip?"),
-  Q(["You yell at a mountain 82 m away on a 0°C day. How long until you hear the echo?","A cliff is 82 m away and the air is 0°C. How long does an echo take to return?"],"About 0.50 s",["About 0.25 s","About 4.0 s","About 27 s","About 0.12 s"],"Round trip = 82 × 2 = 164 m. T = 164 ÷ 331 ≈ 0.50 s. (0.25 s forgets the sound comes back.)","Double the distance first."),
+  Q(["You yell at a mountain 82 m away on a 0°C day, when sound travels at 331 m/s. How long until you hear the echo?","A cliff is 82 m away and the air is 0°C, so sound travels at 331 m/s. How long does an echo take to return?"],"About 0.50 s",["About 0.25 s","About 4.0 s","About 27 s","About 0.12 s"],"Round trip = 82 × 2 = 164 m. T = 164 ÷ 331 ≈ 0.50 s. (0.25 s forgets the sound comes back.)","Double the distance first."),
   Q(["A helicopter passes overhead and you hear it 3 s later. Sound travels at 343 m/s. How high is it?","You hear a helicopter's engine 3 s after seeing it overhead. With sound at 343 m/s, what is its height?"],"1029 m",["114 m","514.5 m","2058 m","346 m"],"D = 343 × 3 = 1029 m. One way only, so no halving."),
   Q(["A submarine is 2.2 km from a ship. Sound in seawater travels at 1400 m/s. How long does a SONAR pulse take to go out and back?","SONAR pings a submarine 2.2 km away. At 1400 m/s, how long until the echo returns?"],"About 3.14 s",["About 1.57 s","About 0.64 s","About 6.28 s","About 3080 s"],"2.2 km = 2200 m. Round trip = 4400 m. T = 4400 ÷ 1400 ≈ 3.14 s.","Convert km to m, then double it."),
   Q(["A train is 1.65 km away. Sound in steel travels at 5200 m/s. How long does the sound take to reach someone listening at the rail?","Through a steel rail at 5200 m/s, how long does a train's sound take to travel 1.65 km?"],"About 0.32 s",["About 3.15 s","About 8580 s","About 5.0 s","About 0.03 s"],"1.65 km = 1650 m. T = 1650 ÷ 5200 ≈ 0.32 s. Sound is very fast in solids."),
-  Q(["The same train whistle (1.65 km away) travels through air at 0°C. How long until a friend hears it?","At 0°C, how long does a whistle take to travel 1.65 km through air?"],"About 5.0 s",["About 0.32 s","About 2.5 s","About 50 s","About 0.5 s"],"T = 1650 ÷ 331 ≈ 5.0 s. That's much slower than through steel, because sound travels slowest in gases."),
-  Q(["A ship's foghorn echo returns from an iceberg after 4.6 s. The air is −10°C. How far away is the iceberg?","At −10°C, a foghorn echo comes back from an iceberg in 4.6 s. What's the distance?"],"About 748 m",["About 1495 m","About 761 m","About 374 m","About 71 m"],"Speed at −10°C = 331 − 6 = 325 m/s. Round trip = 325 × 4.6 = 1495 m. One way = 1495 ÷ 2 ≈ 748 m. (761 m uses 331 m/s and forgets the temperature.)","Adjust the speed for temperature, then halve."),
+  Q(["A train whistle 1.65 km away travels through air at 0°C, where sound moves at 331 m/s. How long until a friend hears it?","At 0°C, sound travels through air at 331 m/s. How long does a whistle take to travel 1.65 km?"],"About 5.0 s",["About 0.32 s","About 2.5 s","About 50 s","About 0.5 s"],"T = 1650 ÷ 331 ≈ 5.0 s. That's much slower than through steel, because sound travels slowest in gases."),
+  Q(["A ship's foghorn echo returns from an iceberg after 4.6 s. The air is −10°C, so sound travels at 325 m/s. How far away is the iceberg?","At −10°C, sound travels at 325 m/s. A foghorn echo comes back from an iceberg in 4.6 s. What's the distance?"],"About 748 m",["About 1495 m","About 761 m","About 374 m","About 71 m"],"Speed at −10°C = 331 − 6 = 325 m/s. Round trip = 325 × 4.6 = 1495 m. One way = 1495 ÷ 2 ≈ 748 m. (761 m uses 331 m/s and forgets the temperature.)","Adjust the speed for temperature, then halve."),
  ]},
  {title:"Round 2: Harder",topic:"Waves and Sound",src:"notes",qs:[
   Q(["Moving across the EM spectrum from radio waves towards gamma rays, what happens?","How do wavelength and frequency change going from radio waves to gamma rays?"],"Wavelength decreases and frequency increases",["Both wavelength and frequency increase","Both wavelength and frequency decrease","Wavelength increases and frequency decreases","Neither changes"],"Wavelength and frequency are inverses. Radio → gamma: wavelength gets SHORTER, frequency gets HIGHER, and energy increases.","They change in opposite directions."),
@@ -1896,7 +1896,7 @@ let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=
 home();
 </script>
 
-<script>window.SH_MODE='app';const APP_VERSION="1.6", APP_NOTES=["Share Study Hub from the menu", "New share page with an email banner and QR code"];</script>
+<script>window.SH_MODE='app';const APP_VERSION="1.7", APP_NOTES=["Science speed-of-sound questions now give you the speed to use"];</script>
 <script src="../shell.js"></script>
 </body>
 </html>

@@ -1,8 +1,7 @@
 {
- "version": "1.6",
+ "version": "1.7",
  "date": "2026-10-18",
  "notes": [
-  "Share Study Hub from the menu",
-  "New share page with an email banner and QR code"
+  "Science speed-of-sound questions now give you the speed to use"
  ]
 }
