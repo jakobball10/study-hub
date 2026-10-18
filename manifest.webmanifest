@@ -1,0 +1,16 @@
+{
+  "name": "Study Hub",
+  "short_name": "Study Hub",
+  "description": "Jakob's Term 4 study quizzes, tests and analytics",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f2f1ee",
+  "theme_color": "#3b2fa3",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
