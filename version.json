@@ -1,8 +1,9 @@
 {
- "version": "1.2",
+ "version": "1.3",
  "date": "2026-10-18",
  "notes": [
-  "New Install app button with the right steps for iPhone, Android and computers",
-  "Fixed Android blocking the app as built for an older version"
+  "New menu (\u2630) with Home, a Subjects dropdown and Analytics",
+  "New home page: jump back in, quizzes that need more work, and your stats",
+  "The website is now a download page; the app opens straight into Study Hub"
  ]
 }
