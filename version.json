@@ -1,9 +1,8 @@
 {
- "version": "1.4",
+ "version": "1.5",
  "date": "2026-10-18",
  "notes": [
-  "New green look and a matching logo everywhere",
-  "Updates now download in the background and switch on by themselves",
-  "Check for updates button in the menu"
+  "New home page: featured core subjects on the left, your stats on the right",
+  "Sharing the link now shows a Download the app preview"
  ]
 }

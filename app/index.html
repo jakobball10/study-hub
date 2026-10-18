@@ -11,6 +11,21 @@
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Study Hub">
+<meta property="og:title" content="Study Hub · Download the app">
+<meta property="og:description" content="Quizzes, tests and progress tracking for every subject. Tap to install it free on Android, iPhone or your computer.">
+<meta property="og:url" content="https://jakobball10.github.io/study-hub/">
+<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.5">
+<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.5">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Study Hub app with a Download the app button">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Study Hub · Download the app">
+<meta name="twitter:description" content="Quizzes, tests and progress tracking for every subject. Install it free.">
+<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.5">
 <title>Study Hub</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -305,6 +320,37 @@ body.calc-open #app{padding-bottom:420px}
 .jump .t b{font-family:var(--display);font-size:17px;line-height:1.2}
 .jump .t small{color:var(--muted);font-size:13px}
 .jump .go{margin-left:auto;font-weight:700;color:hsl(var(--h) 58% var(--acc-l));white-space:nowrap}
+
+/* home: featured subjects (left) + stats (right) */
+#app.wide{max-width:1080px}
+.appbar .inner{max-width:1080px}
+.homegrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px;align-items:start}
+@media (max-width:860px){.homegrid{grid-template-columns:1fr}}
+.col{display:flex;flex-direction:column;gap:22px;min-width:0}
+.feat4{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.feat4{grid-template-columns:1fr}}
+.fcard{display:flex;flex-direction:column;gap:10px;text-align:left;font:inherit;color:var(--fg);cursor:pointer;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:18px;padding:18px;min-height:170px;position:relative;overflow:hidden;transition:border-color .15s,transform .15s}
+.fcard::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:hsl(var(--h) 60% var(--soft-l));opacity:.7}
+.fcard:hover{border-color:hsl(var(--h) 58% var(--acc-l));transform:translateY(-2px)}
+.fcard .m{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font:800 16px var(--display);background:hsl(var(--h) 60% var(--soft-l));color:hsl(var(--h) 58% var(--acc-l));position:relative;z-index:1}
+.fcard .n{font:800 22px var(--display);line-height:1.1}
+.fcard .d{font-size:14px;color:var(--muted)}
+.fcard .bar{flex:none;height:6px;border-radius:99px;background:var(--bg);overflow:hidden;margin-top:auto}
+.fcard .bar i{display:block;height:100%;background:hsl(var(--h) 58% var(--acc-l));border-radius:99px}
+.fcard .bl{font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+.fcard.none{cursor:default;border-style:dashed}.fcard.none .n{color:var(--muted)}
+.more{display:flex;flex-wrap:wrap;gap:8px}
+.mchip{display:flex;align-items:center;gap:8px;font:700 14px var(--body);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 6px;cursor:pointer}
+.mchip .m{width:26px;height:26px;border-radius:999px;display:grid;place-items:center;font:800 11px var(--display);background:hsl(var(--h) 60% var(--soft-l));color:hsl(var(--h) 58% var(--acc-l))}
+.mchip small{color:var(--muted);font-weight:400}
+.mchip.soon{border-style:dashed;color:var(--muted);cursor:default}
+.statpanel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:18px}
+.statpanel .tiles{grid-template-columns:1fr 1fr}
+.statpanel .tile{background:var(--bg);border:0}
+.statpanel h3{margin:0;font:800 18px var(--display)}
+.statpanel .jump{background:var(--bg);border-color:transparent}
+.empty-note{font-size:14px;color:var(--muted);margin:0}
 </style>
 </head>
 <body>
@@ -998,29 +1044,43 @@ function home(){
   for(let i=TESTS.length-1;i>=0&&recent.length<3;i--){const t=TESTS[i];const k=t.s+'/'+t.quiz;if(seen.has(k))continue;seen.add(k);const f=find(t);if(f)recent.push({...f,t})}
   const weak=[];SUBJECTS.forEach(s=>s.quizzes.forEach(q=>{const b=bestOf(s.id+"/"+q.title);if(b!=null&&b<80)weak.push({s,q,b})}));weak.sort((a,b)=>a.b-b.b);
   const jump=(x,sub,go)=>`<button class="jump" data-s="${x.s.id}" data-q="${esc(x.q.title)}" style="--h:${x.s.h}"><span class="m">${x.s.short}</span><span class="t"><b>${esc(x.q.title)}</b><small>${esc(x.s.name)} · ${sub}</small></span><span class="go">${go} →</span></button>`;
+  const core=["maths","eng","sci","hass"].map(id=>SUBJECTS.find(s=>s.id===id)).filter(Boolean);
+  const fcard=s=>{
+    if(!s.quizzes.length) return `<div class="fcard none" style="--h:${s.h}"><span class="m">${s.short}</span><span class="n">${esc(s.name)}</span><span class="d">No quizzes yet</span></div>`;
+    const tested=s.quizzes.filter(q=>bestOf(s.id+"/"+q.title)!=null).length;
+    const b=s.quizzes.map(q=>bestOf(s.id+"/"+q.title)).filter(v=>v!=null);
+    const topics=[...new Set(s.quizzes.map(q=>q.topic||'Other'))];
+    return `<button class="fcard" data-id="${s.id}" style="--h:${s.h}"><span class="m">${s.short}</span><span class="n">${esc(s.name)}</span>
+      <span class="d">${s.quizzes.length} quiz${s.quizzes.length>1?'zes':''} · ${totalQs(s)} questions<br>${esc(topics.join(' · '))}</span>
+      <span class="bl"><span>${tested} of ${s.quizzes.length} tested</span><span>${b.length?'best '+Math.max(...b)+'%':''}</span></span>
+      <span class="bar"><i style="width:${Math.round(tested/s.quizzes.length*100)}%"></i></span></button>`};
+  const others=orderedSubjects().filter(s=>!core.includes(s));
   app.innerHTML=`
     <header class="hello">
       <span class="eyebrow">Term 4 · 2026</span>
       <h1>${greet}</h1>
-      <p class="sub">Pick a subject from the menu or below. Practice to learn, or take a Test to track your progress.</p>
+      <p class="sub">Pick a subject to practise, or take a Test to track your progress.</p>
     </header>
-    <div class="tiles">
-      <div class="tile"><b>${withQ}</b><span>subjects with quizzes</span></div>
-      <div class="tile"><b>${all}</b><span>questions</span></div>
-      <div class="tile"><b>${TESTS.length}</b><span>tests taken</span></div>
-      <div class="tile"><b>${avg==null?'–':avg+'%'}</b><span>average test score</span></div>
-    </div>
-    ${recent.length?`<section class="sect"><h3>Jump back in</h3>${recent.map(x=>jump(x,`last test ${pctOf(x.t)}%`,'Go')).join('')}</section>`:''}
-    ${weak.length?`<section class="sect"><h3>Needs more work</h3>${weak.slice(0,3).map(x=>jump(x,`best ${x.b}%`,'Practise')).join('')}</section>`:''}
-    <section class="sect"><h3>Subjects</h3>
-    <div class="grid">${orderedSubjects().map(s=>{
-      const b=s.quizzes.map(q=>bestOf(s.id+"/"+q.title)).filter(v=>v!=null);
-      const meta=s.quizzes.length?`${s.quizzes.length} quiz${s.quizzes.length>1?'zes':''} · ${totalQs(s)} Qs`+(b.length?` · best ${Math.max(...b)}%`:''):'No quizzes yet';
-      return `<button class="subj${s.quizzes.length?'':' empty'}" id="subj-${s.id}" data-id="${s.id}" style="--h:${s.h}">
-        <span class="mark">${s.short}</span><span class="name">${esc(s.name)}</span><span class="meta">${meta}</span></button>`}).join('')}
-    </div></section>
-    <div class="row" id="historyRow"><button class="btn small" id="anaBtn">View analytics</button>${TESTS.length?`<button class="btn ghost small" id="clearBtn">Clear test history</button>`:`<span class="keys">Take a quiz in Test mode to start building your stats.</span>`}</div>`;
-  app.querySelectorAll('.subj').forEach(b=>b.addEventListener('click',()=>subject(b.dataset.id)));
+    <div class="homegrid">
+      <div class="col">
+        <section class="sect"><h3>Featured subjects</h3><div class="feat4">${core.map(fcard).join('')}</div></section>
+        <section class="sect"><h3>More subjects</h3><div class="more">${others.map(s=>s.quizzes.length?`<button class="mchip" data-id="${s.id}" style="--h:${s.h}"><span class="m">${s.short}</span>${esc(s.name)} <small>${s.quizzes.length}</small></button>`:`<span class="mchip soon" style="--h:${s.h}"><span class="m">${s.short}</span>${esc(s.name)} <small>soon</small></span>`).join('')}</div></section>
+      </div>
+      <aside class="col statpanel" aria-label="Your stats">
+        <h3>Your stats</h3>
+        <div class="tiles">
+          <div class="tile"><b>${TESTS.length}</b><span>tests taken</span></div>
+          <div class="tile"><b>${avg==null?'–':avg+'%'}</b><span>average score</span></div>
+          <div class="tile"><b>${new Set(TESTS.map(t=>t.id)).size}</b><span>quizzes tested</span></div>
+          <div class="tile"><b>${all}</b><span>questions in ${withQ} subjects</span></div>
+        </div>
+        ${recent.length?`<section class="sect"><h3>Jump back in</h3>${recent.map(x=>jump(x,`last test ${pctOf(x.t)}%`,'Go')).join('')}</section>`:''}
+        ${weak.length?`<section class="sect"><h3>Needs more work</h3>${weak.slice(0,3).map(x=>jump(x,`best ${x.b}%`,'Practise')).join('')}</section>`:''}
+        ${!TESTS.length?`<p class="empty-note">Take any quiz in <b>Test</b> mode and your scores, recent tests and weak spots will show up here.</p>`:''}
+        <div class="row" id="historyRow"><button class="btn small" id="anaBtn">Full analytics</button>${TESTS.length?`<button class="btn ghost small" id="clearBtn">Clear test history</button>`:''}</div>
+      </aside>
+    </div>`;
+  app.querySelectorAll('.fcard[data-id],.mchip[data-id]').forEach(b=>b.addEventListener('click',()=>subject(b.dataset.id)));
   app.querySelectorAll('.jump').forEach(b=>b.addEventListener('click',()=>{const s=SUBJECTS.find(x=>x.id===b.dataset.s);const q=s.quizzes.find(q=>q.title===b.dataset.q);chooseMode(s,q.title,q.qs,s.id+"/"+q.title,null,q.topic||'Other')}));
   document.getElementById('anaBtn').addEventListener('click',analytics);
   const cb=document.getElementById('clearBtn');
@@ -1579,10 +1639,11 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer.classList.co
 // keep the bar label and menu highlight in sync with every page change
 (function(){
   const _home=home,_subject=subject,_analytics=analytics,_choose=chooseMode;
-  home=function(...a){CUR_SUB=null;_home(...a);whereLabel()};
-  subject=function(id,...a){CUR_SUB=id;_subject(id,...a);whereLabel()};
-  analytics=function(...a){_analytics(...a);whereLabel()};
-  chooseMode=function(s,...a){CUR_SUB=s.id;_choose(s,...a);whereLabel()};
+  const wide=on=>app.classList.toggle('wide',on);
+  home=function(...a){CUR_SUB=null;wide(true);_home(...a);whereLabel()};
+  subject=function(id,...a){CUR_SUB=id;wide(false);_subject(id,...a);whereLabel()};
+  analytics=function(...a){wide(false);_analytics(...a);whereLabel()};
+  chooseMode=function(s,...a){CUR_SUB=s.id;wide(false);_choose(s,...a);whereLabel()};
 })();
 /* ---------- built-in calculator (Maths) ---------- */
 const CALC={ans:0,open:false};
@@ -1830,7 +1891,7 @@ let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=
 home();
 </script>
 
-<script>window.SH_MODE='app';const APP_VERSION="1.4", APP_NOTES=["New green look and a matching logo everywhere", "Updates now download in the background and switch on by themselves", "Check for updates button in the menu"];</script>
+<script>window.SH_MODE='app';const APP_VERSION="1.5", APP_NOTES=["New home page: featured core subjects on the left, your stats on the right", "Sharing the link now shows a Download the app preview"];</script>
 <script src="../shell.js"></script>
 </body>
 </html>
