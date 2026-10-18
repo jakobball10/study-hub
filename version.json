@@ -1,8 +1,8 @@
 {
- "version": "1.5",
+ "version": "1.6",
  "date": "2026-10-18",
  "notes": [
-  "New home page: featured core subjects on the left, your stats on the right",
-  "Sharing the link now shows a Download the app preview"
+  "Share Study Hub from the menu",
+  "New share page with an email banner and QR code"
  ]
 }

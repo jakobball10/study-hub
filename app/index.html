@@ -13,11 +13,12 @@
 <link rel="apple-touch-icon" href="../icon-180.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Study Hub">
+<meta property="og:locale" content="en_AU">
 <meta property="og:title" content="Study Hub · Download the app">
 <meta property="og:description" content="Quizzes, tests and progress tracking for every subject. Tap to install it free on Android, iPhone or your computer.">
 <meta property="og:url" content="https://jakobball10.github.io/study-hub/">
-<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.5">
-<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.5">
+<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.6">
+<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.6">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Study Hub · Download the app">
 <meta name="twitter:description" content="Quizzes, tests and progress tracking for every subject. Install it free.">
-<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.5">
+<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.6">
 <title>Study Hub</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -368,6 +369,7 @@ body.calc-open #app{padding-bottom:420px}
   <button class="navi" id="navSubjects" aria-expanded="true" aria-controls="navSubList"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5Z"/><path d="M12 6v13.5"/></svg>Subjects<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
   <div class="sublist open" id="navSubList"></div>
   <button class="navi" id="navAna"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/></svg>Analytics</button>
+  <button class="navi" id="navShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>Share Study Hub</button>
   <div class="dfoot" id="navFoot">Scores are saved on this device.</div>
 </nav>
 <div class="wrap accent" id="app"></div>
@@ -1634,6 +1636,9 @@ scrim.addEventListener('click',()=>closeDrawer(true));
 document.getElementById('brandBtn').addEventListener('click',()=>navTo(home));
 document.getElementById('navHome').addEventListener('click',()=>navTo(home));
 document.getElementById('navAna').addEventListener('click',()=>navTo(analytics));
+document.getElementById('navShare').addEventListener('click',async()=>{const url='https://jakobball10.github.io/study-hub/';
+  if(navigator.share){try{await navigator.share({title:'Study Hub',text:'A free study app with quizzes and tests for every subject.',url});return}catch(e){if(e&&e.name==='AbortError')return}}
+  location.href=url+'share/'});
 document.getElementById('navSubjects').addEventListener('click',e=>{const l=document.getElementById('navSubList');const o=!l.classList.contains('open');l.classList.toggle('open',o);e.currentTarget.setAttribute('aria-expanded',o)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer.classList.contains('open'))closeDrawer(true)},true);
 // keep the bar label and menu highlight in sync with every page change
@@ -1891,7 +1896,7 @@ let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=
 home();
 </script>
 
-<script>window.SH_MODE='app';const APP_VERSION="1.5", APP_NOTES=["New home page: featured core subjects on the left, your stats on the right", "Sharing the link now shows a Download the app preview"];</script>
+<script>window.SH_MODE='app';const APP_VERSION="1.6", APP_NOTES=["Share Study Hub from the menu", "New share page with an email banner and QR code"];</script>
 <script src="../shell.js"></script>
 </body>
 </html>
