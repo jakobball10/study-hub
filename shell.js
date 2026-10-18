@@ -1,12 +1,15 @@
 /* Study Hub shell: install helper (landing + app) and update prompts (app only). */
 (function(){
   const MODE=window.SH_MODE||'app', BASE=MODE==='app'?'../':'./';
-  const css=`.upd{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:90;max-width:460px;margin:0 auto;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 12px 34px rgba(0,0,0,.25);font-family:var(--body);display:flex;flex-direction:column;gap:8px;max-height:80vh;overflow:auto}
+  const css=`:root{--shb:#1d6b4f;--shb-fg:#fff}@media (prefers-color-scheme:dark){:root{--shb:#6fd3a6;--shb-fg:#0f1512}}
+  .upd{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:90;max-width:460px;margin:0 auto;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 12px 34px rgba(0,0,0,.25);font-family:var(--body);display:flex;flex-direction:column;gap:8px;max-height:80vh;overflow:auto}
   .upd h3{margin:0;font:800 18px var(--display)}.upd ul,.upd ol{margin:0;padding-left:22px;font-size:15px;line-height:1.5}.upd ul{color:var(--muted)}.upd .r{display:flex;gap:8px;justify-content:flex-end;margin-top:4px}
-  .upd button{font:inherit;font-weight:700;border-radius:10px;padding:10px 16px;cursor:pointer;border:1.5px solid #3b2fa3;background:#3b2fa3;color:#fff}.upd button.l{background:transparent;color:var(--fg);border-color:var(--line)}
+  .upd button{font:inherit;font-weight:700;border-radius:10px;padding:10px 16px;cursor:pointer;border:1.5px solid var(--shb);background:var(--shb);color:var(--shb-fg)}.upd button.l{background:transparent;color:var(--fg);border-color:var(--line)}
   .upd small{color:var(--muted)}.upd .inote{font-size:13px;color:var(--muted);margin:0}
-  .instpill{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;gap:2px;background:#3b2fa3;color:#fff;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.2);font:700 15px var(--body)}
-  .instpill button{font:inherit;background:none;border:0;color:inherit;cursor:pointer;padding:11px 6px 11px 16px}.instpill button.x{padding:11px 14px 11px 6px;opacity:.75}`;
+  .instpill{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;gap:2px;background:var(--shb);color:var(--shb-fg);border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.2);font:700 15px var(--body)}
+  .instpill button{font:inherit;background:none;border:0;color:inherit;cursor:pointer;padding:11px 6px 11px 16px}.instpill button.x{padding:11px 14px 11px 6px;opacity:.75}
+  .toast{position:fixed;left:50%;transform:translateX(-50%);top:calc(64px + env(safe-area-inset-top));z-index:95;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-left:4px solid var(--shb);border-radius:12px;padding:10px 14px;box-shadow:0 10px 26px rgba(0,0,0,.18);font:15px/1.4 var(--body);max-width:min(440px,calc(100vw - 24px));width:max-content;cursor:pointer}
+  .toast b{display:block;font-family:var(--display)}.toast span{color:var(--muted);font-size:14px}`;
   const st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
   const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
   function card(html){const old=document.querySelector('.upd');if(old)old.remove();const d=document.createElement('div');d.className='upd';d.setAttribute('role','dialog');d.innerHTML=html;document.body.appendChild(d);return d}
@@ -47,30 +50,37 @@
   window.SH_install=install;
   if(MODE==='app') addEventListener('load',()=>setTimeout(pill,600));
 
-  /* ---------- service worker + updates ---------- */
+  /* ---------- service worker + automatic background updates ---------- */
+  function toast(title,sub,ms=7000){const o=document.querySelector('.toast');if(o)o.remove();const t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.innerHTML=`<b>${esc(title)}</b>${sub?`<span>${esc(sub)}</span>`:''}`;t.onclick=()=>t.remove();document.body.appendChild(t);setTimeout(()=>t.remove(),ms);return t}
+  window.SH_toast=toast;
   if(MODE==='app'){
     let last=null;try{last=localStorage.getItem('studyhub.appVersion');localStorage.setItem('studyhub.appVersion',APP_VERSION)}catch(e){}
-    if(last&&last!==APP_VERSION){addEventListener('load',()=>{const d=card(`<h3>Updated to version ${esc(APP_VERSION)}</h3><ul>${APP_NOTES.map(n=>'<li>'+esc(n)+'</li>').join('')}</ul><div class="r"><button>Nice</button></div>`);d.querySelector('button').onclick=()=>d.remove();setTimeout(()=>d.remove(),12000)})}
+    if(last&&last!==APP_VERSION) addEventListener('load',()=>setTimeout(()=>toast('Updated to version '+APP_VERSION,APP_NOTES.join(' · '),9000),400));
   }
   if(!('serviceWorker' in navigator)) return;
-  let shown=false, reloading=false;
-  async function offer(reg){
-    if(MODE!=='app'){reg.waiting&&reg.waiting.postMessage('skipWaiting');return}
-    if(shown||!reg.waiting) return; shown=true;
-    let info={version:'',notes:[]};try{info=await (await fetch(BASE+'version.json',{cache:'no-store'})).json()}catch(e){}
-    const d=card(`<small>App update</small><h3>Update available${info.version?' · version '+esc(info.version):''}</h3>${info.notes&&info.notes.length?'<ul>'+info.notes.map(n=>'<li>'+esc(n)+'</li>').join('')+'</ul>':''}<div class="r"><button class="l" id="updLater">Later</button><button id="updNow">Update now</button></div>`);
-    d.querySelector('#updLater').onclick=()=>d.remove();
-    d.querySelector('#updNow').onclick=()=>{d.querySelector('#updNow').textContent='Updating…';reg.waiting&&reg.waiting.postMessage('skipWaiting')};
+  // A new version installs itself in the background. The page then reloads into it at a safe
+  // moment: straight away on menus and lists, or as soon as a quiz or its results screen is finished.
+  const curView=()=>typeof VIEW!=='undefined'?VIEW:null;
+  const safe=()=>{const v=curView();return MODE!=='app'||!v||v==='home'||v==='subject'||v==='analytics'};
+  let pending=false, hadController=!!navigator.serviceWorker.controller;
+  function applyWhenSafe(){
+    if(!pending) return;
+    if(safe()||document.visibilityState==='hidden'&&curView()!=='quiz'){pending=false;location.reload()}
+    else setTimeout(applyWhenSafe,1500);
   }
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloading)return;reloading=true;location.reload()});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!hadController){hadController=true;return}if(pending)return;pending=true;applyWhenSafe()});
+  let regRef=null;
+  window.SH_checkUpdate=async()=>{if(!regRef)return 'none';try{await regRef.update()}catch(e){return 'offline'}return regRef.installing||regRef.waiting||pending?'updating':'latest'};
   addEventListener('load',async()=>{
     try{
-      const reg=await navigator.serviceWorker.register(BASE+'sw.js',{scope:BASE});
-      const watch=()=>{const w=reg.installing;if(w)w.addEventListener('statechange',()=>{if(w.state==='installed'&&navigator.serviceWorker.controller)offer(reg)})};
-      reg.addEventListener('updatefound',watch);
-      if(reg.waiting&&navigator.serviceWorker.controller) offer(reg);
-      reg.update().catch(()=>{});
-      document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')reg.update().catch(()=>{})});
+      const reg=regRef=await navigator.serviceWorker.register(BASE+'sw.js',{scope:BASE});
+      if(reg.waiting) reg.waiting.postMessage('skipWaiting');
+      reg.addEventListener('updatefound',()=>{const w=reg.installing;if(w)w.addEventListener('statechange',()=>{if(w.state==='installed')w.postMessage('skipWaiting')})});
+      const check=()=>{if(navigator.onLine!==false)reg.update().catch(()=>{})};
+      check();
+      setInterval(check,5*60*1000);                       // every 5 minutes while open
+      document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')check();else applyWhenSafe()});
+      addEventListener('online',check);
     }catch(e){}
   });
 })();

@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#3b2fa3">
+<meta name="theme-color" content="#1d6b4f">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Study Hub">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="manifest" href="../manifest.webmanifest">
-<link rel="icon" href="../icon-192.png">
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../icon-180.png">
 <title>Study Hub</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -18,17 +18,17 @@
 <style>
 /* Layout: one centred column; three views (subjects grid → subject's quiz list → quiz card). Each subject tints the accent with its own hue. */
 :root{
-  --bg:#f2f1ee; --surface:#ffffff; --fg:#1e1d24; --muted:#67646f; --line:#dcd9d3;
+  --bg:#f0f3ef; --surface:#ffffff; --fg:#17201b; --muted:#5d6a62; --line:#d5ddd6;
   --good:#1d7a4c; --good-soft:#e0f2e7; --bad:#b3261e; --bad-soft:#fbe3e1;
-  --acc-l:38%; --soft-l:93%; --h:250;
+  --acc-l:32%; --soft-l:92%; --h:155;
   --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#6250d6; --s8:#e34948; --s9:#8a8790;
   --display:"Bricolage Grotesque",system-ui,sans-serif; --body:"Atkinson Hyperlegible",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#141318; --surface:#1e1d24; --fg:#f0eef4; --muted:#a6a2b0; --line:#34323c;
+  --bg:#0f1512; --surface:#18201c; --fg:#e8f0eb; --muted:#9bb0a4; --line:#2a3630;
   --good:#6fd39c; --good-soft:#163325; --bad:#ff8a80; --bad-soft:#3b1a1a; --acc-l:74%; --soft-l:20%; --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767; --s9:#8d8a96; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#141318; --surface:#1e1d24; --fg:#f0eef4; --muted:#a6a2b0; --line:#34323c;
+  --bg:#0f1512; --surface:#18201c; --fg:#e8f0eb; --muted:#9bb0a4; --line:#2a3630;
   --good:#6fd39c; --good-soft:#163325; --bad:#ff8a80; --bad-soft:#3b1a1a; --acc-l:74%; --soft-l:20%; --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767; --s9:#8d8a96; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.5;
@@ -274,7 +274,7 @@ body.calc-open #app{padding-bottom:420px}
 .drawer .dhead{display:flex;align-items:center;justify-content:space-between;padding:0 0 10px 4px;border-bottom:1px solid var(--line);margin-bottom:8px}
 .navi{display:flex;align-items:center;gap:12px;width:100%;font:700 16px var(--body);color:var(--fg);background:none;border:0;border-radius:12px;padding:12px;cursor:pointer;text-align:left}
 .navi:hover{background:var(--bg)}
-.navi.on{background:color-mix(in srgb,#3b2fa3 12%,var(--surface));color:#3b2fa3}
+.navi.on{background:color-mix(in srgb,#1d6b4f 12%,var(--surface));color:#1d6b4f}
 .navi svg{width:22px;height:22px;flex:none}
 .navi .chev{margin-left:auto;width:18px;height:18px;transition:transform .2s}
 .navi[aria-expanded="true"] .chev{transform:rotate(180deg)}
@@ -286,9 +286,10 @@ body.calc-open #app{padding-bottom:420px}
 .subi .m{width:28px;height:28px;border-radius:8px;flex:none;display:grid;place-items:center;font:800 12px var(--display);background:hsl(var(--h) 60% var(--soft-l));color:hsl(var(--h) 58% var(--acc-l))}
 .subi .c{margin-left:auto;font-size:12px;color:var(--muted);font-weight:600}
 .subi.empty{color:var(--muted)}
+.linkbtn{font:inherit;background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer}
 .drawer .dfoot{margin-top:auto;padding:14px 8px 0;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
 @media (prefers-reduced-motion:reduce){.drawer,.scrim{transition:none}}
-@media (prefers-color-scheme:dark){.navi.on{color:#b9b2ef;background:color-mix(in srgb,#9085e9 18%,var(--surface))}}
+@media (prefers-color-scheme:dark){.navi.on{color:#7fdcb0;background:color-mix(in srgb,#6fd3a6 16%,var(--surface))}}
 /* home */
 .hello{display:flex;flex-direction:column;gap:6px}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
@@ -311,12 +312,12 @@ body.calc-open #app{padding-bottom:420px}
 
 <header class="appbar"><div class="inner">
   <button class="iconbtn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-  <button class="brand" id="brandBtn" aria-label="Study Hub home"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#3b2fa3"/><path d="M30 18 13 15v27l17 3Z" fill="#fff"/><path d="M34 18l17-3v27l-17 3Z" fill="#fff"/><path d="M17 22l9 2M17 28l9 2M17 34l9 2" stroke="#b9b2ef" stroke-width="2.2" stroke-linecap="round"/><path d="m38 31 4 4 6-9" fill="none" stroke="#1baf7a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Study Hub</span></button>
+  <button class="brand" id="brandBtn" aria-label="Study Hub home"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d6b4f"/><path d="M31 19 13 16v27l18 3Z" fill="#fff"/><path d="M33 19l18-3v27l-18 3Z" fill="#fff"/><path d="M17 23.5l10 1.6M17 29.5l10 1.6M17 35.5l10 1.6" stroke="#9fd3bb" stroke-width="2.2" stroke-linecap="round"/><path d="m37 32 4 4 7-10" fill="none" stroke="#22a06b" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Study Hub</span></button>
   <span class="where" id="whereLbl"></span>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <nav class="drawer" id="drawer" aria-label="Main menu">
-  <div class="dhead"><span class="brand" style="cursor:default"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#3b2fa3"/><path d="M30 18 13 15v27l17 3Z" fill="#fff"/><path d="M34 18l17-3v27l-17 3Z" fill="#fff"/><path d="M17 22l9 2M17 28l9 2M17 34l9 2" stroke="#b9b2ef" stroke-width="2.2" stroke-linecap="round"/><path d="m38 31 4 4 6-9" fill="none" stroke="#1baf7a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Study Hub</span></span><button class="iconbtn" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="dhead"><span class="brand" style="cursor:default"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d6b4f"/><path d="M31 19 13 16v27l18 3Z" fill="#fff"/><path d="M33 19l18-3v27l-18 3Z" fill="#fff"/><path d="M17 23.5l10 1.6M17 29.5l10 1.6M17 35.5l10 1.6" stroke="#9fd3bb" stroke-width="2.2" stroke-linecap="round"/><path d="m37 32 4 4 7-10" fill="none" stroke="#22a06b" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Study Hub</span></span><button class="iconbtn" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
   <button class="navi" id="navHome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/></svg>Home</button>
   <button class="navi" id="navSubjects" aria-expanded="true" aria-controls="navSubList"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5Z"/><path d="M12 6v13.5"/></svg>Subjects<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
   <div class="sublist open" id="navSubList"></div>
@@ -330,7 +331,7 @@ body.calc-open #app{padding-bottom:420px}
 const Q=(q,a,w,e,h)=>({q,a,w,e,h});
 
 const SUBJECTS=[
-{id:"hass",name:"HASS",short:"HA",h:12,quizzes:[
+{id:"hass",name:"HASS",short:"HA",h:140,quizzes:[
  {title:"Australia's Democracy",topic:"Civics and Citizenship",src:"notes",qs:[
   Q("Australia is a representative democracy. What does this mean?","Citizens elect representatives to make decisions on their behalf in parliament",["Citizens vote directly on every law","The Governor-General makes all the laws","Judges are elected to run the country","The Prime Minister is chosen by the King"],"Citizens elect MPs to make decisions for them, and those MPs stay accountable through regular elections.","Who actually sits in parliament?"),
   Q("Australia is also a liberal democracy. What does that mean?","Government power is limited by laws that protect individual rights and freedoms",["The Liberal Party always runs the government","There are no limits on what the government can do","Only people with degrees can vote","Laws can be ignored if most people disagree"],"'Liberal' here isn't about a political party. It means government power is limited by laws that protect rights and freedoms."),
@@ -394,7 +395,7 @@ const SUBJECTS=[
  ]},
 ]},
 
-{id:"sci",name:"Science",short:"Sc",h:190,quizzes:[
+{id:"sci",name:"Science",short:"Sc",h:172,quizzes:[
  {title:"Round 1: Core Ideas",topic:"Waves and Sound",src:"notes",qs:[
   Q(["A wave transfers what from place to place?","What does a wave carry from one place to another?"],"Energy",["Matter","Particles","Mass","Water"],"A wave transfers energy WITHOUT transferring matter. The particles vibrate but don't travel along with the wave.","The particles stay put and just vibrate."),
   Q(["Which type of wave is made up of compressions and rarefactions?","Sound travels as which type of wave?"],"Longitudinal wave",["Transverse wave","Electromagnetic wave","Radio wave","Surface wave"],"Longitudinal waves (like sound) have compressions and rarefactions. The particles vibrate back and forth in the direction the wave travels. Transverse waves move up and down instead.","Think about how sound moves."),
@@ -527,7 +528,7 @@ const SUBJECTS=[
   Q(["Which part of the eye is NOT transparent?","Light can't pass through which part of the eye?"],"The sclera",["The cornea","The lens","The aqueous humour","The vitreous humour"],"The sclera is the tough white outer coat, so light doesn't pass through it."),
  ]},
 ]},
-{id:"maths",name:"Maths",short:"Ma",h:225,quizzes:[
+{id:"maths",name:"Maths",short:"Ma",h:190,quizzes:[
  {title:"5A Errors and Percentage Error",topic:"Chapter 5: Measurement",src:"notes",qs:[
   Q(["Why are all measurements considered estimates?","Which statement about measurements is true?"],"No instrument can measure a quantity perfectly, so every measurement is only close to the actual value",["Digital instruments always give the exact value","Only measurements in metric units are estimates","Measurements are only estimates if a person reads the scale","A measurement is exact once it is rounded"],"Every measurement depends on the instrument's scale, the units and the person using it, so it can only ever be an estimate of the actual quantity."),
   Q(["Which of these does NOT affect the accuracy of a measurement?","The accuracy of a measurement depends on all of these EXCEPT…"],"The colour of the measuring instrument",["The scale on the measuring instrument","The units used in the measurement","The person's skill at reading the scale","The smallest unit marked on the instrument"],"Accuracy depends on the instrument's scale, the units used and the person's ability to use the instrument and read the scale."),
@@ -731,7 +732,7 @@ const SUBJECTS=[
   Q(["Find the capacity, in litres, of a cylinder with radius 40 cm and height 100 cm (nearest litre).","Cylinder r = 40 cm, h = 100 cm. Capacity in litres?"],"503 L",["502 655 L","50 L","5027 L","251 L"],"V = π × 40² × 100 ≈ 502 655 cm³. ÷ 1000 ≈ 503 L."),
  ]},
 ]},
-{id:"eng",name:"English",short:"En",h:330,quizzes:[
+{id:"eng",name:"English",short:"En",h:122,quizzes:[
  {title:"Book Basics",topic:"A Walk in the Dark",src:"notes",qs:[
   Q(["Who wrote A Walk in the Dark?","Who is the author of A Walk in the Dark?"],"Jane Godwin",["Jackie French","John Marsden","Jaclyn Moriarty","Morris Gleitzman"],"A Walk in the Dark was written by Australian author Jane Godwin."),
   Q(["In what year was A Walk in the Dark published?","When was A Walk in the Dark first published?"],"2022",["2010","2015","2019","2024"],"The novel was published in 2022."),
@@ -795,12 +796,12 @@ const SUBJECTS=[
   Q(["What comes in an essay introduction?","Which parts make up a strong essay intro?"],"Focus statement, thesis statement and signposts",["Only a quote","The conclusion and bibliography","A list of every character","Your opinion of the author's life"],"The intro has a focus statement (maybe a global statement), a thesis statement, then signposts for each body paragraph."),
  ]},
 ]},
-{id:"liars",name:"Liars and Lawyers",short:"LL",h:280,quizzes:[]},
-{id:"health",name:"Health",short:"He",h:150,quizzes:[]},
-{id:"faith",name:"Faith, Belief and Life",short:"FB",h:40,quizzes:[]},
-{id:"music",name:"Music Extension",short:"Mu",h:265,quizzes:[]},
-{id:"outed",name:"Outdoor Education",short:"OE",h:95,quizzes:[]},
-{id:"forensic",name:"Forensic Science",short:"FS",h:0,quizzes:[
+{id:"liars",name:"Liars and Lawyers",short:"LL",h:108,quizzes:[]},
+{id:"health",name:"Health",short:"He",h:158,quizzes:[]},
+{id:"faith",name:"Faith, Belief and Life",short:"FB",h:82,quizzes:[]},
+{id:"music",name:"Music Extension",short:"Mu",h:92,quizzes:[]},
+{id:"outed",name:"Outdoor Education",short:"OE",h:130,quizzes:[]},
+{id:"forensic",name:"Forensic Science",short:"FS",h:205,quizzes:[
  {title:"1. An Overview of Forensic Science",topic:"CSI Textbook (Book 1)",src:"notes",qs:[
   Q(["What is forensic science?","Forensic science is best defined as…"],"Using scientific methods and processes to investigate crime",["The study of why people commit crime","A branch of law that writes new criminal laws","Police officers questioning suspects","Using computers to predict future crimes"],"Forensic science applies scientific methods like observing, testing and recording data to the investigation of crime. The evidence is presented in court."),
   Q(["Who said 'every contact leaves a trace'?","Which pioneer of forensic science is linked to the idea that every contact leaves a trace?"],"Edmond Locard",["Sherlock Holmes","Mathieu Orfila","Charles Darwin","Alexander the Great"],"Edmond Locard (1877–1966) was a French criminologist and a pioneer of forensic science."),
@@ -987,7 +988,7 @@ let VIEW="home";
 
 /* ---------- views ---------- */
 function home(){
-  VIEW="home"; setHue(250);
+  VIEW="home"; setHue(155);
   const all=SUBJECTS.reduce((n,s)=>n+totalQs(s),0);
   const withQ=SUBJECTS.filter(s=>s.quizzes.length).length;
   const avg=TESTS.length?Math.round(TESTS.reduce((a,t)=>a+pctOf(t),0)/TESTS.length):null;
@@ -1556,7 +1557,11 @@ function buildNav(){
   list.querySelectorAll('.subi').forEach(b=>b.addEventListener('click',()=>navTo(()=>subject(b.dataset.id))));
   document.getElementById('navHome').classList.toggle('on',VIEW==='home');
   document.getElementById('navAna').classList.toggle('on',VIEW==='analytics');
-  const f=document.getElementById('navFoot');if(f)f.textContent='Scores are saved on this device.'+(typeof APP_VERSION!=='undefined'?' · Version '+APP_VERSION:'');
+  const f=document.getElementById('navFoot');
+  if(f){f.innerHTML='Scores are saved on this device.'+(typeof APP_VERSION!=='undefined'?`<br>Version ${APP_VERSION} · <button class="linkbtn" id="chkUpd">Check for updates</button>`:'');
+    const cu=document.getElementById('chkUpd');if(cu)cu.onclick=async()=>{cu.textContent='Checking…';const r=window.SH_checkUpdate?await window.SH_checkUpdate():'none';
+      cu.textContent='Check for updates';const T=window.SH_toast||(()=>{});
+      if(r==='updating'){closeDrawer();T('Downloading an update…','It will apply in a moment.')}else if(r==='offline')T("You're offline",'Updates will download next time you are online.');else T("You're up to date",'Version '+APP_VERSION+' is the latest.')}}
 }
 function whereLabel(){
   const s=CUR_SUB&&SUBJECTS.find(x=>x.id===CUR_SUB);
@@ -1642,7 +1647,7 @@ function filtered(){
   return TESTS.filter(t=>(!AF.subs||AF.subs.has(t.s))&&(cutoff==null||t.t>=cutoff));
 }
 function analytics(){
-  VIEW="analytics"; setHue(250);
+  VIEW="analytics"; setHue(155);
   const testedSubs=orderedSubjects().filter(s=>TESTS.some(t=>t.s===s.id));
   if(AF.subs) AF.subs=new Set([...AF.subs].filter(id=>testedSubs.some(s=>s.id===id)));
   if(AF.subs&&!AF.subs.size) AF.subs=null;
@@ -1825,7 +1830,7 @@ let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=
 home();
 </script>
 
-<script>window.SH_MODE='app';const APP_VERSION="1.3", APP_NOTES=["New menu (\u2630) with Home, a Subjects dropdown and Analytics", "New home page: jump back in, quizzes that need more work, and your stats", "The website is now a download page; the app opens straight into Study Hub"];</script>
+<script>window.SH_MODE='app';const APP_VERSION="1.4", APP_NOTES=["New green look and a matching logo everywhere", "Updates now download in the background and switch on by themselves", "Check for updates button in the menu"];</script>
 <script src="../shell.js"></script>
 </body>
 </html>

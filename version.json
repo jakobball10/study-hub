@@ -1,9 +1,9 @@
 {
- "version": "1.3",
+ "version": "1.4",
  "date": "2026-10-18",
  "notes": [
-  "New menu (\u2630) with Home, a Subjects dropdown and Analytics",
-  "New home page: jump back in, quizzes that need more work, and your stats",
-  "The website is now a download page; the app opens straight into Study Hub"
+  "New green look and a matching logo everywhere",
+  "Updates now download in the background and switch on by themselves",
+  "Check for updates button in the menu"
  ]
 }
