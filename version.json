@@ -1,7 +1,9 @@
 {
- "version": "1.9",
+ "version": "1.10",
  "date": "2026-10-18",
  "notes": [
-  "Science: every speed question now says the medium and the temperature"
+  "True or false now shows proper statements to judge",
+  "Written answers use fill-in-the-blank for questions that need options",
+  "Fixed 34 questions whose wording didn't match the answer"
  ]
 }
