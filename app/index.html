@@ -17,8 +17,8 @@
 <meta property="og:title" content="Study Hub · Download the app">
 <meta property="og:description" content="Quizzes, tests and progress tracking for every subject. Tap to install it free on Android, iPhone or your computer.">
 <meta property="og:url" content="https://jakobball10.github.io/study-hub/">
-<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.13">
-<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.13">
+<meta property="og:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.14">
+<meta property="og:image:secure_url" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.14">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Study Hub · Download the app">
 <meta name="twitter:description" content="Quizzes, tests and progress tracking for every subject. Install it free.">
-<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.13">
+<meta name="twitter:image" content="https://jakobball10.github.io/study-hub/og-image.jpg?v=1.14">
 <title>Study Hub</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -478,7 +478,7 @@ const SUBJECTS=[
   Q(["What is the High Court's most important job?", "The High Court's main role is to…"],"Interpret the Constitution and decide whether laws passed by parliaments follow it",["Hear all minor traffic offences", "Make new laws for the states", "Run elections", "Hear divorce cases"],"The High Court interprets the Constitution and checks that state and federal laws are in line with it.","Think about the Constitution."),
   Q(["What does it mean that the High Court is the 'last court of appeal'?", "As the last court of appeal, the High Court…"],"It hears appeals from lower courts, and there is no higher court to appeal to",["It is the last court built in Australia", "It only hears cases on the last day of the year", "It can't hear any appeals", "It is the lowest court"],"Appeals from lower courts can go to the High Court, and its decision is final."),
   Q(["How many justices sit on the High Court?", "The High Court has how many justices?"],"Seven",["Three", "Five", "Nine", "Twelve"],"There are seven justices of the High Court."),
-  Q(["As well as interpreting the Constitution, what disputes does the High Court deal with?", "The High Court also settles disputes between…"],"Disputes between the governments of Australia",["Neighbours arguing over fences", "Students and schools", "Shoppers and shops", "Sports clubs"],"The High Court deals with disputes between Australian governments, such as between the federal government and a state."),
+  Q(["As well as interpreting the Constitution, what disputes does the High Court deal with?", "The High Court also settles disputes between…"],"Disputes between the governments of Australia",["Disputes between neighbours over fences", "Disputes between students and their schools", "Disputes between shoppers and shops", "Disputes between sports clubs"],"The High Court deals with disputes between Australian governments, such as between the federal government and a state."),
   Q(["How many federal courts sit under the High Court?", "Under the High Court, there are how many federal courts?"],"Three",["One", "Two", "Five", "Seven"],"There are three federal courts under the High Court: the Federal Court, the Family Court and the Federal Circuit Court. (Since 2021, the Family Court of Australia and the Federal Circuit Court have been merged into the Federal Circuit and Family Court of Australia.)"),
   Q(["Which federal court hears cases about Commonwealth law, such as immigration and taxation?", "Immigration and taxation cases go to which federal court?"],"The Federal Court",["The Family Court", "The Magistrates Court", "The District Court", "The Children's Court"],"The Federal Court deals with laws made by Federal Parliament and decisions made by the Federal Government, such as immigration and taxation."),
   Q(["Which federal court hears child custody cases and divorce hearings?", "Divorce hearings and child custody cases go to which federal court?"],"The Family Court",["The Federal Court", "The High Court", "The Supreme Court", "The Coroner's Court"],"The Family Court hears cases about families, such as child custody and divorce. (Since 2021, the Family Court of Australia and the Federal Circuit Court have been merged into the Federal Circuit and Family Court of Australia.)"),
@@ -491,7 +491,7 @@ const SUBJECTS=[
   Q(["Up to what amount can the Magistrates Court hear civil claims?", "Civil claims in the Magistrates Court can be worth up to…"],"$75,000",["$750,000", "$7,500", "$7.5 million", "There is no limit"],"The Magistrates Court hears civil claims up to $75,000."),
   Q(["Who decides the verdict and sentence in the Magistrates Court?", "Is there a jury in the Magistrates Court?"],"The magistrate, as there is no jury",["A jury of 12", "The police", "The victim", "The High Court"],"There is no jury in the Magistrates Court. The magistrate decides."),
   Q(["What kind of criminal cases does the District Court deal with?", "The District Court hears criminal cases that are…"],"Moderate ones, such as armed robbery and serious assault, with up to 20 years' imprisonment",["Minor ones, such as petty theft", "Only murder cases", "Only family disputes", "Cases worth under $75,000"],"The District Court deals with moderate criminal cases that can lead to a maximum of 20 years' imprisonment."),
-  Q(["What civil cases does the District Court hear?", "Civil cases worth between $75,000 and $750,000 go to which court?"],"Civil cases between $75,000 and $750,000",["Civil cases up to $75,000", "Civil cases over $750,000", "No civil cases at all", "Only divorce cases"],"The District Court hears civil cases worth between $75,000 and $750,000."),
+  Q(["What civil cases does the District Court hear?", "Civil cases worth between $75,000 and $750,000 go to which court?"],"Those between $75,000 and $750,000",["Those up to $75,000", "Those over $750,000", "None at all", "Only divorce cases"],"The District Court hears civil cases worth between $75,000 and $750,000."),
   Q(["In the District and Supreme Courts, who decides guilt and who decides the sentence?", "How are guilt and sentencing decided in the District Court?"],"A jury decides guilt or innocence, and the judge decides the sentence",["The judge decides both", "The jury decides both", "The police decide guilt and the judge decides the sentence", "The victim decides the sentence"],"Both courts require juries to decide guilt or innocence, but the judge decides the sentence."),
   Q(["What kind of criminal cases does the Supreme Court deal with?", "The Supreme Court hears criminal cases such as…"],"Serious ones, such as murder, with a maximum of life imprisonment",["Minor ones, such as petty theft", "Only traffic offences", "Cases with a maximum of three years", "Only child custody"],"The Supreme Court deals with serious criminal cases, such as murder, which can lead to life imprisonment."),
   Q(["Civil cases worth over $750,000 go to which WA court?", "Which WA court hears the most serious civil cases?"],"The Supreme Court",["The District Court", "The Magistrates Court", "The Children's Court", "The Warden's Court"],"Serious civil cases over $750,000 go to the Supreme Court."),
@@ -508,7 +508,7 @@ const SUBJECTS=[
   Q(["How does a court hierarchy help with appeals?", "Why does a court hierarchy matter for appeals?"],"Decisions from lower courts can be reviewed and corrected by higher courts",["It means decisions can never be changed", "Appeals go to lower courts", "Only the police can appeal", "It removes the need for appeals"],"A clear structure lets higher courts review and correct lower court decisions, which helps fairness and accuracy."),
   Q(["How does a court hierarchy help with precedent?", "Why do higher courts matter for precedent?"],"Higher courts set precedents that lower courts must follow, keeping the law consistent",["Lower courts set rules for higher courts", "Precedents are ignored by all courts", "Each court makes up its own rules", "Only parliament can set precedents"],"Higher courts such as the High Court set binding precedents, which keeps the law consistent and predictable."),
   Q(["How does a court hierarchy improve access to justice?", "Why does having lower courts make justice more accessible?"],"Minor cases can be resolved cheaply and quickly without long, expensive procedures",["Everyone must go to the High Court", "It makes every case cost more", "It means only rich people can go to court", "It removes all courts from small towns"],"Lower courts make the system more accessible and affordable for minor cases."),
-  Q(["How does a court hierarchy allow expertise?", "Why do specialist courts like the Family Court exist?"],"Judges and magistrates can specialise in certain areas of law",["So every judge knows nothing about any area", "To make cases take longer", "So the police can choose the judge", "To avoid using laws at all"],"Specialist courts let judges and magistrates build expertise in areas like family or children's law."),
+  Q(["How does a court hierarchy allow expertise?", "Why do specialist courts like the Family Court exist?"],"Judges and magistrates can specialise in certain areas of law",["Every judge has to hear every type of case", "Cases take longer when judges specialise", "The police get to choose the judge", "Specialist courts don't need to follow the law"],"Specialist courts let judges and magistrates build expertise in areas like family or children's law."),
  ]},
 ]},
 
@@ -1987,7 +1987,7 @@ let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=
 home();
 </script>
 
-<script>window.SH_MODE='app';const APP_VERSION="1.13", APP_NOTES=["New HASS quiz: Court Hierarchy (36 questions)"];</script>
+<script>window.SH_MODE='app';const APP_VERSION="1.14", APP_NOTES=["New HASS quiz: Court Hierarchy (36 questions)", "Clearer wording on a few court hierarchy questions"];</script>
 <script src="../shell.js"></script>
 </body>
 </html>
