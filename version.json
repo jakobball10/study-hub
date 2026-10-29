@@ -1,8 +1,8 @@
 {
- "version": "1.14",
- "date": "2026-10-20",
+ "version": "1.15",
+ "date": "2026-10-29",
  "notes": [
-  "New HASS quiz: Court Hierarchy (36 questions)",
-  "Clearer wording on a few court hierarchy questions"
+  "New HASS quiz: Negligence (18 questions)",
+  "New HASS quiz: Criminal Courtroom Layout (18 questions)"
  ]
 }
