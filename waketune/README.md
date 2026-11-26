@@ -2,7 +2,7 @@
 
 An Android alarm that plays your Spotify music and keeps playing until you **hold the off button for 3 seconds**. No snooze and no auto-off.
 
-**[Download WakeTune.apk](https://github.com/jakobball10/study-hub/raw/main/waketune/WakeTune.apk)** · Android 8+ · free
+**[Download WakeTune.apk](https://jakobball10.github.io/study-hub/waketune/WakeTune.apk)** · Android 8+ · free
 
 ## Install
 1. Download the APK on your Android phone and open it. If asked, allow your browser to install unknown apps.
