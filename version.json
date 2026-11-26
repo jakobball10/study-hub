@@ -1,8 +1,7 @@
 {
- "version": "1.15",
- "date": "2026-10-29",
+ "version": "1.16",
+ "date": "2026-11-26",
  "notes": [
-  "New HASS quiz: Negligence (18 questions)",
-  "New HASS quiz: Criminal Courtroom Layout (18 questions)"
+  "New: download the WakeTune alarm app from the home screen (Android)"
  ]
 }

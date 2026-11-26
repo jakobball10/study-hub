@@ -314,6 +314,14 @@ body.calc-open #app{padding-bottom:420px}
 .tile span{font-size:13px;color:var(--muted)}
 .sect{display:flex;flex-direction:column;gap:10px}
 .sect h3{margin:0;font:800 20px var(--display)}
+.promo{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;flex-wrap:wrap}
+.promo .pi{width:48px;height:48px;border-radius:12px;background:#D92D20;color:#fff;display:grid;place-items:center;flex:none}
+.promo .pi svg{width:26px;height:26px}
+.promo .pt{flex:1 1 180px;display:flex;flex-direction:column;gap:2px}
+.promo .pt b{font:800 17px var(--display)}
+.promo .pt small{color:var(--muted);font-size:14px;line-height:1.4}
+.promo a.btn{text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.promo a.btn svg{width:18px;height:18px}
 .jump{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;color:var(--fg);background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer}
 .jump:hover{border-color:hsl(var(--h) 58% var(--acc-l))}
 .jump .m{width:40px;height:40px;border-radius:11px;flex:none;display:grid;place-items:center;font:800 14px var(--display);background:hsl(var(--h) 60% var(--soft-l));color:hsl(var(--h) 58% var(--acc-l))}
@@ -1176,6 +1184,13 @@ function home(){
       <div class="col">
         <section class="sect"><h3>Featured subjects</h3><div class="feat4">${core.map(fcard).join('')}</div></section>
         <section class="sect"><h3>More subjects</h3><div class="more">${others.map(s=>s.quizzes.length?`<button class="mchip" data-id="${s.id}" style="--h:${s.h}"><span class="m">${s.short}</span>${esc(s.name)} <small>${s.quizzes.length}</small></button>`:`<span class="mchip soon" style="--h:${s.h}"><span class="m">${s.short}</span>${esc(s.name)} <small>soon</small></span>`).join('')}</div></section>
+        <section class="sect"><h3>More apps</h3>
+          <div class="promo">
+            <span class="pi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/></svg></span>
+            <span class="pt"><b>WakeTune alarm</b><small>Wake up to your Spotify. It keeps playing until you hold the off button for 3 seconds. Android only.</small></span>
+            <a class="btn small" href="https://github.com/jakobball10/study-hub/raw/main/waketune/WakeTune.apk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>Download</a>
+          </div>
+        </section>
       </div>
       <aside class="col statpanel" aria-label="Your stats">
         <h3>Your stats</h3>
@@ -2027,7 +2042,7 @@ let rz; window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=
 home();
 </script>
 
-<script>window.SH_MODE='app';const APP_VERSION="1.15", APP_NOTES=["New HASS quiz: Negligence (18 questions)", "New HASS quiz: Criminal Courtroom Layout (18 questions)"];</script>
+<script>window.SH_MODE='app';const APP_VERSION="1.16", APP_NOTES=["New: download the WakeTune alarm app from the home screen (Android)"];</script>
 <script src="../shell.js"></script>
 </body>
 </html>
