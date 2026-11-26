@@ -2,7 +2,7 @@
 
 An Android alarm that plays your Spotify music and keeps playing until you **hold the off button for 3 seconds**. No snooze and no auto-off.
 
-**[Download JakobAlarm.apk](https://jakobball10.github.io/study-hub/jakobalarm/JakobAlarm.apk)** · Android 8+ · free
+**[Download JakobAlarm.apk](https://jakobball10.github.io/study-hub/jakobalarm/JakobAlarm-4.0.apk)** · Android 8+ · free
 
 ## Install
 1. Download the APK on your Android phone, tap **Open**, then **Install**. If asked, allow Chrome to install unknown apps.
